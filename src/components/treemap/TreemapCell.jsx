@@ -1,4 +1,4 @@
-import { getTypeColor, getTextColor } from '../../lib/colorScales'
+import { getTypeColor } from '../../lib/colorScales'
 import { formatBurden } from '../../lib/formatters'
 
 export default function TreemapCell({ node, onMouseEnter, onMouseLeave, onClick }) {
@@ -10,9 +10,9 @@ export default function TreemapCell({ node, onMouseEnter, onMouseLeave, onClick 
   if (w < 1 || h < 1) return null
 
   const bgColor = getTypeColor(node)
-  const textColor = getTextColor(bgColor)
-  const showLabel = w > 40 && h > 18
-  const showValue = w > 60 && h > 32
+  const showLabel = w > 38 && h > 16
+  const showValue = w > 55 && h > 30
+  const clipId = `c-${Math.round(x)}-${Math.round(y)}`
 
   return (
     <g
@@ -27,11 +27,11 @@ export default function TreemapCell({ node, onMouseEnter, onMouseLeave, onClick 
         width={w}
         height={h}
         fill={bgColor}
-        rx={2}
-        ry={2}
+        rx={3}
+        ry={3}
       />
       {showLabel && (
-        <clipPath id={`clip-${node.data.name.replace(/\s+/g, '-')}-${x}-${y}`}>
+        <clipPath id={clipId}>
           <rect x={x + 4} y={y + 2} width={w - 8} height={h - 4} />
         </clipPath>
       )}
@@ -39,10 +39,11 @@ export default function TreemapCell({ node, onMouseEnter, onMouseLeave, onClick 
         <text
           x={x + 6}
           y={y + 14}
-          fill={textColor}
-          fontSize="11"
+          fill="#fff"
+          fontSize="10.5"
           fontWeight="500"
-          clipPath={`url(#clip-${node.data.name.replace(/\s+/g, '-')}-${x}-${y})`}
+          fontFamily="'DM Sans', sans-serif"
+          clipPath={`url(#${clipId})`}
           style={{ pointerEvents: 'none' }}
         >
           {node.data.name}
@@ -51,10 +52,11 @@ export default function TreemapCell({ node, onMouseEnter, onMouseLeave, onClick 
       {showValue && (
         <text
           x={x + 6}
-          y={y + 28}
-          fill={textColor}
-          fontSize="10"
-          opacity={0.8}
+          y={y + 27}
+          fill="rgba(255,255,255,0.65)"
+          fontSize="9.5"
+          fontFamily="'DM Mono', monospace"
+          clipPath={`url(#${clipId})`}
           style={{ pointerEvents: 'none' }}
         >
           {formatBurden(node.value)}

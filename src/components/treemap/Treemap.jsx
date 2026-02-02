@@ -89,21 +89,23 @@ export default function Treemap() {
                       width={gw}
                       height={gh}
                       fill={bgColor}
-                      opacity={0.12}
-                      rx={3}
+                      opacity={0.06}
+                      rx={4}
                     />
                   )}
                   {gh > 20 && gw > 50 && (
                     <text
                       x={group.x0 + 6}
-                      y={group.y0 + 15}
-                      fill={isTopLevel ? bgColor : 'var(--color-text-secondary)'}
-                      fontSize={isTopLevel ? '12' : '10'}
-                      fontWeight={isTopLevel ? '700' : '600'}
-                      opacity={isTopLevel ? 1 : 0.7}
+                      y={group.y0 + 14}
+                      fill={isTopLevel ? bgColor : 'rgba(255,255,255,0.35)'}
+                      fontSize={isTopLevel ? '11' : '9.5'}
+                      fontWeight={isTopLevel ? '600' : '500'}
+                      fontFamily="'DM Mono', monospace"
+                      opacity={isTopLevel ? 0.85 : 0.6}
                       style={{ pointerEvents: 'none' }}
                     >
-                      {group.data.name} ({formatBurden(group.value)})
+                      {group.data.name}
+                      <tspan opacity="0.5"> {formatBurden(group.value)}</tspan>
                     </text>
                   )}
                 </g>
