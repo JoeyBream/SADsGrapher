@@ -24,6 +24,16 @@ function getNodeType(node) {
   return null
 }
 
+function getAnimalName(node) {
+  let current = node
+  while (current) {
+    if (current.data && current.data.animal) return current.data.animal
+    current = current.parent
+  }
+  const type = getNodeType(node)
+  return type ? TYPE_LABELS[type] : null
+}
+
 function hexToVec3(hex) {
   const r = parseInt(hex.slice(1, 3), 16) / 255
   const g = parseInt(hex.slice(3, 5), 16) / 255
@@ -108,6 +118,7 @@ function Tooltip3D({ node, position }) {
   const parentValue = node.parent ? node.parent.value : node.value
   const type = getNodeType(node)
   const color = type ? TYPE_COLORS[type] : '#999'
+  const animalName = getAnimalName(node)
 
   return (
     <Html
@@ -117,6 +128,11 @@ function Tooltip3D({ node, position }) {
     >
       <div className={styles.tooltip}>
         <div className={styles.tooltipAccent} style={{ backgroundColor: color }} />
+        {animalName && (
+          <div className={styles.tooltipAnimal} style={{ color }}>
+            {animalName}
+          </div>
+        )}
         <div className={styles.tooltipName}>{data.name}</div>
         <div className={styles.tooltipGrid}>
           <span className={styles.tooltipLabel}>SAD Burden</span>

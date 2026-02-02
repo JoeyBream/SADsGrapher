@@ -2,10 +2,10 @@ export const TYPE_COLORS = {
   poultry: '#e8795a',
   pigs: '#5ec29a',
   fish: '#4a9be8',
-  crustaceans: '#f07052',
+  crustaceans: '#e04080',
   insects: '#d4b84a',
-  cattle: '#c29060',
-  sheep: '#b0a090',
+  cattle: '#9b6dd7',
+  sheep: '#95a5a6',
 }
 
 export const TYPE_LABELS = {
