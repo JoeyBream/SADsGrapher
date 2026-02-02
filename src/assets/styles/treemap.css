@@ -1,12 +1,12 @@
 .treemap-cell rect {
-  transition: opacity var(--transition-fast);
+  transition: filter var(--transition-fast), stroke-width var(--transition-fast);
   cursor: pointer;
-  stroke: rgba(255, 255, 255, 0.6);
-  stroke-width: 1px;
+  stroke: rgba(0, 0, 0, 0.35);
+  stroke-width: 0.5px;
 }
 
 .treemap-cell:hover rect {
-  opacity: 0.85;
-  stroke: #333;
-  stroke-width: 2px;
+  filter: brightness(1.25) saturate(1.1);
+  stroke: rgba(255, 255, 255, 0.4);
+  stroke-width: 1.5px;
 }

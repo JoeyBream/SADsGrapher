@@ -10,7 +10,7 @@ export default function Legend() {
         <div key={type} className={styles.item}>
           <span
             className={styles.swatch}
-            style={{ backgroundColor: color }}
+            style={{ backgroundColor: color, color }}
           />
           <span className={styles.label}>{TYPE_LABELS[type]}</span>
         </div>

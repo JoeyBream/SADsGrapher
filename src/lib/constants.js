@@ -1,11 +1,11 @@
 export const TYPE_COLORS = {
-  poultry: '#e07a5f',
-  pigs: '#81b29a',
-  fish: '#3d85c6',
-  crustaceans: '#f4845f',
-  insects: '#c9b458',
-  cattle: '#7c5e3c',
-  sheep: '#a0937d',
+  poultry: '#e8795a',
+  pigs: '#5ec29a',
+  fish: '#4a9be8',
+  crustaceans: '#f07052',
+  insects: '#d4b84a',
+  cattle: '#c29060',
+  sheep: '#b0a090',
 }
 
 export const TYPE_LABELS = {
@@ -19,9 +19,9 @@ export const TYPE_LABELS = {
 }
 
 export const TREEMAP_PADDING = {
-  outer: 4,
-  top: 24,
-  inner: 2,
+  outer: 3,
+  top: 22,
+  inner: 1.5,
 }
 
-export const ANIMATION_DURATION = 300
+export const ANIMATION_DURATION = 250

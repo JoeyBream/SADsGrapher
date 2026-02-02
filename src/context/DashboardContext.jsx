@@ -8,6 +8,7 @@ const initialState = {
   hoveredNode: null,
   selectedNode: null,
   mousePosition: { x: 0, y: 0 },
+  viewMode: '2d',
 }
 
 function dashboardReducer(state, action) {
@@ -31,6 +32,8 @@ function dashboardReducer(state, action) {
       return { ...state, selectedNode: action.payload }
     case 'SET_MOUSE':
       return { ...state, mousePosition: action.payload }
+    case 'SET_VIEW_MODE':
+      return { ...state, viewMode: action.payload }
     default:
       return state
   }
